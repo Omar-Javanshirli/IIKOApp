@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <RootNamespace>F._Application</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.32.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\B. Common\B. Common.csproj" />
+    <ProjectReference Include="..\D. Repository\D. Repository.csproj" />
+    <ProjectReference Include="..\E. DAL.SQLServer\E. DAL.SQLServer.csproj" />
+  </ItemGroup>
+
+</Project>
