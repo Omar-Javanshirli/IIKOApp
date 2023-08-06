@@ -1,14 +1,8 @@
 ﻿using C._Domain.Entities;
 using D._Repository.Services;
-using E._DAL.SQLServer.Infrastructure;
 using E._DAL.SQLServer.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace F._Application.Services
 {
@@ -19,7 +13,7 @@ namespace F._Application.Services
         private readonly string secretKey;
         private readonly IConfiguration _configuration;
 
-        public ApplicationUserService(ApplicationUserManager userManager, IUnitOfWork unitOfWork, IConfiguration configuration)
+        public ApplicationUserService(ApplicationUserManager userManager, IConfiguration configuration)
         {
             _userManager = userManager;
             _configuration = configuration;

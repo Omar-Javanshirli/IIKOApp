@@ -1,5 +1,9 @@
-using App.Infrastructure;
-using Microsoft.Extensions.Configuration;
+﻿using C._Domain.Entities;
+using D._Repository.Services;
+using E._DAL.SQLServer.Infrastructure;
+using E._DAL.SQLServer.Services;
+using F._Application.Services;
+using Microsoft.AspNetCore.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,8 +14,16 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+//builder.Services.AddProjectDependencies(builder.Configuration);
 
-//builder.Services.AddProjectDependencies(configuration);
+builder.Services.AddScoped<ApplicationUserManager>();
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+builder.Services.AddScoped<IApplicationUserStore<User>, ApplicationUserStore>();
+builder.Services.AddScoped<IJwtUtils, JwtUtils>();
+builder.Services.AddScoped<IPasswordHasher<User>, PasswordHasher<User>>();
+builder.Services.AddScoped<ILookupNormalizer>();
+
+builder.Services.AddScoped<IApplicationUserService, ApplicationUserService>();
 
 var app = builder.Build();
 
